@@ -1,6 +1,9 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -10,65 +13,120 @@
 
     <meta
         name="description"
-        content="Studio Voar — criação, tecnologia e soluções digitais."
+        content="Studio Voar — criação de sites, design e soluções digitais."
     >
 
     <meta
         name="theme-color"
-        content="#ffffff"
+        content="#08070d"
     >
 
-    <title>Studio Voar</title>
+    <meta
+        name="robots"
+        content="index, follow"
+    >
 
-    <!-- CSS principal -->
-    <link rel="stylesheet" href="style.css">
+    <title>Studio Voar | Soluções Digitais</title>
+
+    <!-- =====================================================
+         FONTE
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
+
 
 <body>
 
-    <!-- =========================================
-         CABEÇALHO
-    ========================================== -->
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
     <header class="site-header">
 
         <div class="container header-container">
 
-            <!-- Logo -->
+
+            <!-- LOGO -->
+
             <a
                 href="#inicio"
                 class="logo-link"
                 aria-label="Studio Voar - Início"
             >
+
                 <img
                     src="assets/logo.png"
                     alt="Studio Voar"
                     class="logo"
                 >
+
             </a>
 
-            <!-- Navegação -->
+
+            <!-- NAVEGAÇÃO -->
+
             <nav
                 class="main-navigation"
                 aria-label="Navegação principal"
             >
-                <a href="#inicio">Início</a>
-                <a href="#sobre">Sobre</a>
-                <a href="#servicos">Serviços</a>
-                <a href="#projetos">Projetos</a>
-                <a href="#contato">Contato</a>
+
+                <a href="#inicio">
+                    Início
+                </a>
+
+                <a href="#sobre">
+                    Sobre
+                </a>
+
+                <a href="#servicos">
+                    Serviços
+                </a>
+
+                <a href="#projetos">
+                    Projetos
+                </a>
+
+                <a href="#contato">
+                    Contato
+                </a>
+
             </nav>
 
-            <!-- Botão do menu mobile -->
+
+            <!-- MENU MOBILE -->
+
             <button
                 type="button"
                 class="menu-toggle"
                 id="menuToggle"
                 aria-label="Abrir menu"
                 aria-expanded="false"
+                aria-controls="main-navigation"
             >
+
                 <span></span>
                 <span></span>
                 <span></span>
+
             </button>
 
         </div>
@@ -76,12 +134,18 @@
     </header>
 
 
-    <!-- =========================================
-         CONTEÚDO PRINCIPAL
-    ========================================== -->
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
     <main>
 
-        <!-- HERO / INÍCIO -->
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
         <section
             id="inicio"
             class="hero"
@@ -92,36 +156,48 @@
 
                 <div class="hero-content">
 
+
                     <p class="hero-label">
                         STUDIO VOAR
                     </p>
 
+
                     <h1 id="hero-title">
-                        Seu espaço para
-                        <span>criar e transformar</span>
+
+                        Transformamos
+                        <span>ideias em presença digital.</span>
+
                     </h1>
 
+
                     <p class="hero-description">
-                        Soluções digitais pensadas para transformar
-                        ideias em projetos modernos, funcionais e
-                        preparados para o futuro.
+
+                        Criamos sites, experiências digitais e
+                        soluções personalizadas para pessoas,
+                        marcas e negócios que querem crescer
+                        no mundo digital.
+
                     </p>
+
 
                     <div class="hero-actions">
 
-                        <a
-                            href="#servicos"
-                            class="button button-primary"
-                        >
-                            Conheça nossos serviços
-                        </a>
 
                         <a
                             href="#projetos"
-                            class="button button-secondary"
+                            class="button button-primary"
                         >
                             Ver projetos
                         </a>
+
+
+                        <a
+                            href="#contato"
+                            class="button button-secondary"
+                        >
+                            Fale conosco
+                        </a>
+
 
                     </div>
 
@@ -132,9 +208,11 @@
         </section>
 
 
-        <!-- =========================================
+
+        <!-- =================================================
              SOBRE
-        ========================================== -->
+        ================================================== -->
+
         <section
             id="sobre"
             class="section about-section"
@@ -143,31 +221,56 @@
 
             <div class="container">
 
+
                 <div class="section-header">
 
                     <p class="section-label">
-                        SOBRE
+                        SOBRE O STUDIO
                     </p>
 
+
                     <h2 id="about-title">
-                        Conheça o Studio Voar
+                        Criatividade,
+                        tecnologia e propósito.
                     </h2>
 
+
+                    <p>
+                        O Studio Voar nasceu para transformar
+                        ideias em projetos digitais.
+                    </p>
+
                 </div>
+
 
                 <div class="about-content">
 
                     <p>
-                        O Studio Voar é um espaço dedicado à criação
-                        de projetos digitais, tecnologia e soluções
-                        criativas.
+
+                        Desenvolvemos experiências digitais
+                        modernas, funcionais e pensadas para
+                        conectar pessoas e negócios.
+
                     </p>
 
+
                     <p>
-                        Aqui construiremos uma apresentação clara,
-                        profissional e estratégica do trabalho,
-                        mantendo uma experiência simples e agradável
-                        para quem visitar o site.
+
+                        Nosso objetivo é criar soluções que
+                        tenham uma boa apresentação visual,
+                        sejam fáceis de usar e funcionem
+                        perfeitamente em computadores,
+                        tablets e celulares.
+
+                    </p>
+
+
+                    <p>
+
+                        Cada projeto é desenvolvido com
+                        atenção aos detalhes, identidade
+                        visual e experiência do usuário.
+
                     </p>
 
                 </div>
@@ -177,9 +280,11 @@
         </section>
 
 
-        <!-- =========================================
+
+        <!-- =================================================
              SERVIÇOS
-        ========================================== -->
+        ================================================== -->
+
         <section
             id="servicos"
             class="section services-section"
@@ -188,25 +293,35 @@
 
             <div class="container">
 
+
                 <div class="section-header">
 
                     <p class="section-label">
-                        SERVIÇOS
+                        O QUE FAZEMOS
                     </p>
 
+
                     <h2 id="services-title">
-                        O que fazemos
+                        Soluções para o mundo digital.
                     </h2>
 
+
                     <p>
-                        Espaço preparado para apresentar os principais
-                        serviços do Studio Voar.
+
+                        Do conceito ao projeto final,
+                        transformamos necessidades em
+                        experiências digitais.
+
                     </p>
 
                 </div>
 
 
+
                 <div class="services-grid">
+
+
+                    <!-- SERVIÇO 01 -->
 
                     <article class="service-card">
 
@@ -214,17 +329,25 @@
                             01
                         </div>
 
+
                         <h3>
-                            Desenvolvimento
+                            Desenvolvimento Web
                         </h3>
 
+
                         <p>
-                            Criação de sites e projetos digitais
-                            modernos e responsivos.
+
+                            Criamos sites modernos,
+                            responsivos e preparados para
+                            diferentes dispositivos.
+
                         </p>
 
                     </article>
 
+
+
+                    <!-- SERVIÇO 02 -->
 
                     <article class="service-card">
 
@@ -232,17 +355,25 @@
                             02
                         </div>
 
+
                         <h3>
-                            Design
+                            Design Digital
                         </h3>
 
+
                         <p>
-                            Interfaces pensadas para oferecer uma
-                            experiência visual agradável e funcional.
+
+                            Criamos interfaces e experiências
+                            visuais alinhadas à identidade
+                            de cada projeto.
+
                         </p>
 
                     </article>
 
+
+
+                    <!-- SERVIÇO 03 -->
 
                     <article class="service-card">
 
@@ -250,16 +381,23 @@
                             03
                         </div>
 
+
                         <h3>
                             Soluções Digitais
                         </h3>
 
+
                         <p>
-                            Projetos personalizados de acordo com
-                            cada necessidade.
+
+                            Desenvolvemos soluções
+                            personalizadas para transformar
+                            processos e ideias em produtos
+                            digitais.
+
                         </p>
 
                     </article>
+
 
                 </div>
 
@@ -268,9 +406,11 @@
         </section>
 
 
-        <!-- =========================================
+
+        <!-- =================================================
              PROJETOS
-        ========================================== -->
+        ================================================== -->
+
         <section
             id="projetos"
             class="section projects-section"
@@ -279,40 +419,59 @@
 
             <div class="container">
 
+
                 <div class="section-header">
 
                     <p class="section-label">
                         PORTFÓLIO
                     </p>
 
+
                     <h2 id="projects-title">
-                        Projetos
+                        Projetos que criamos.
                     </h2>
 
+
                     <p>
-                        Aqui serão apresentados os projetos
+
+                        Alguns dos trabalhos e experiências
                         desenvolvidos pelo Studio Voar.
+
                     </p>
 
                 </div>
 
 
+
                 <div class="projects-grid">
 
+
+                    <!-- PROJETO 01 -->
+
                     <article class="project-card">
 
                         <div class="project-placeholder">
-                            Projeto 01
+
+                            <span>
+                                PROJETO 01
+                            </span>
+
                         </div>
+
 
                         <div class="project-content">
 
                             <h3>
-                                Projeto em destaque
+                                Projeto Digital
                             </h3>
 
+
                             <p>
-                                Descrição do projeto.
+
+                                Website desenvolvido com foco
+                                em experiência do usuário,
+                                desempenho e apresentação.
+
                             </p>
 
                         </div>
@@ -320,20 +479,33 @@
                     </article>
 
 
+
+                    <!-- PROJETO 02 -->
+
                     <article class="project-card">
 
                         <div class="project-placeholder">
-                            Projeto 02
+
+                            <span>
+                                PROJETO 02
+                            </span>
+
                         </div>
+
 
                         <div class="project-content">
 
                             <h3>
-                                Projeto digital
+                                Presença Digital
                             </h3>
 
+
                             <p>
-                                Descrição do projeto.
+
+                                Solução digital criada para
+                                apresentar uma marca e seus
+                                serviços de forma profissional.
+
                             </p>
 
                         </div>
@@ -341,25 +513,39 @@
                     </article>
 
 
+
+                    <!-- PROJETO 03 -->
+
                     <article class="project-card">
 
                         <div class="project-placeholder">
-                            Projeto 03
+
+                            <span>
+                                PROJETO 03
+                            </span>
+
                         </div>
+
 
                         <div class="project-content">
 
                             <h3>
-                                Projeto personalizado
+                                Projeto Personalizado
                             </h3>
 
+
                             <p>
-                                Descrição do projeto.
+
+                                Projeto desenvolvido de acordo
+                                com as necessidades específicas
+                                do cliente.
+
                             </p>
 
                         </div>
 
                     </article>
+
 
                 </div>
 
@@ -368,9 +554,11 @@
         </section>
 
 
-        <!-- =========================================
+
+        <!-- =================================================
              CONTATO
-        ========================================== -->
+        ================================================== -->
+
         <section
             id="contato"
             class="section contact-section"
@@ -379,19 +567,24 @@
 
             <div class="container">
 
+
                 <div class="section-header">
 
                     <p class="section-label">
                         CONTATO
                     </p>
 
+
                     <h2 id="contact-title">
-                        Vamos criar juntos?
+                        Vamos criar algo incrível?
                     </h2>
 
+
                     <p>
-                        Entre em contato para conversar sobre seu
-                        próximo projeto.
+
+                        Conte-nos sua ideia e vamos conversar
+                        sobre como transformá-la em realidade.
+
                     </p>
 
                 </div>
@@ -399,13 +592,17 @@
 
                 <div class="contact-content">
 
+
                     <a
                         href="#"
                         class="button button-primary"
                         id="contactButton"
                     >
+
                         Entrar em contato
+
                     </a>
+
 
                 </div>
 
@@ -413,46 +610,72 @@
 
         </section>
 
+
     </main>
 
 
-    <!-- =========================================
-         RODAPÉ
-    ========================================== -->
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
     <footer class="site-footer">
 
         <div class="container footer-container">
 
+
             <div class="footer-brand">
 
-                <img
-                    src="assets/logo.png"
-                    alt="Studio Voar"
-                    class="footer-logo"
+
+                <a
+                    href="#inicio"
+                    aria-label="Voltar ao início"
                 >
+
+                    <img
+                        src="assets/logo.png"
+                        alt="Studio Voar"
+                        class="footer-logo"
+                    >
+
+                </a>
+
 
                 <p>
                     Studio Voar
                 </p>
 
+
             </div>
 
 
+
             <p class="copyright">
-                © <span id="currentYear"></span>
-                Studio Voar. Todos os direitos reservados.
+
+                ©
+                <span id="currentYear"></span>
+                Studio Voar.
+                Todos os direitos reservados.
+
             </p>
+
 
         </div>
 
     </footer>
 
 
-    <!-- =========================================
+
+    <!-- =====================================================
          JAVASCRIPT
-    ========================================== -->
-    <script src="script.js"></script>
+    ====================================================== -->
+
+    <script
+        src="script.js"
+    ></script>
+
 
 </body>
+
 </html>
 ```
