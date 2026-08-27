@@ -1,53 +1,61 @@
 ```javascript
 /* =========================================================
    STUDIO VOAR
-   SCRIPT.JS
+   SCRIPT.JS V2
+   Menu • Navegação • WhatsApp • Ano automático
 ========================================================= */
 
 "use strict";
 
 
 /* =========================================================
-   1. INICIALIZAÇÃO
+   INICIALIZAÇÃO
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
     inicializarMenu();
     atualizarAno();
-    inicializarNavegacaoSuave();
+    inicializarNavegacao();
     inicializarContato();
 
 });
 
 
 /* =========================================================
-   2. MENU MOBILE
+   MENU MOBILE
 ========================================================= */
 
 function inicializarMenu() {
 
-    const menuToggle = document.getElementById("menuToggle");
-    const navigation = document.querySelector(".main-navigation");
+    const menuToggle =
+        document.getElementById("menuToggle");
+
+    const navigation =
+        document.querySelector(".main-navigation");
 
     if (!menuToggle || !navigation) {
         return;
     }
 
 
-    menuToggle.addEventListener("click", () => {
+    /* Abrir / fechar */
 
-        const aberto =
+    menuToggle.addEventListener("click", (event) => {
+
+        event.stopPropagation();
+
+        const menuAberto =
             navigation.classList.toggle("active");
 
         menuToggle.setAttribute(
             "aria-expanded",
-            aberto.toString()
+            String(menuAberto)
         );
 
         menuToggle.setAttribute(
             "aria-label",
-            aberto
+            menuAberto
                 ? "Fechar menu"
                 : "Abrir menu"
         );
@@ -55,7 +63,7 @@ function inicializarMenu() {
     });
 
 
-    /* Fecha o menu ao clicar em um link */
+    /* Fechar ao clicar em um link */
 
     const links =
         navigation.querySelectorAll("a");
@@ -64,88 +72,65 @@ function inicializarMenu() {
 
         link.addEventListener("click", () => {
 
-            navigation.classList.remove("active");
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-            menuToggle.setAttribute(
-                "aria-label",
-                "Abrir menu"
-            );
+            fecharMenu();
 
         });
 
     });
 
 
-    /* Fecha o menu ao clicar fora */
+    /* Fechar ao clicar fora */
 
     document.addEventListener("click", (event) => {
 
-        const clicouNoMenu =
-            navigation.contains(event.target);
-
-        const clicouNoBotao =
-            menuToggle.contains(event.target);
-
         if (
-            !clicouNoMenu &&
-            !clicouNoBotao &&
-            navigation.classList.contains("active")
+            !navigation.contains(event.target) &&
+            !menuToggle.contains(event.target)
         ) {
 
-            navigation.classList.remove("active");
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-            menuToggle.setAttribute(
-                "aria-label",
-                "Abrir menu"
-            );
+            fecharMenu();
 
         }
 
     });
 
 
-    /* Fecha o menu ao pressionar ESC */
+    /* Fechar com ESC */
 
     document.addEventListener("keydown", (event) => {
 
-        if (
-            event.key === "Escape" &&
-            navigation.classList.contains("active")
-        ) {
+        if (event.key === "Escape") {
 
-            navigation.classList.remove("active");
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-            menuToggle.setAttribute(
-                "aria-label",
-                "Abrir menu"
-            );
-
-            menuToggle.focus();
+            fecharMenu();
 
         }
 
     });
+
+
+    /* Função interna */
+
+    function fecharMenu() {
+
+        navigation.classList.remove("active");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        menuToggle.setAttribute(
+            "aria-label",
+            "Abrir menu"
+        );
+
+    }
 
 }
 
 
 /* =========================================================
-   3. ANO AUTOMÁTICO DO RODAPÉ
+   ANO AUTOMÁTICO
 ========================================================= */
 
 function atualizarAno() {
@@ -164,10 +149,10 @@ function atualizarAno() {
 
 
 /* =========================================================
-   4. NAVEGAÇÃO SUAVE
+   NAVEGAÇÃO SUAVE
 ========================================================= */
 
-function inicializarNavegacaoSuave() {
+function inicializarNavegacao() {
 
     const links =
         document.querySelectorAll(
@@ -181,12 +166,16 @@ function inicializarNavegacaoSuave() {
             const destino =
                 link.getAttribute("href");
 
+            /*
+             * Ignora links vazios.
+             */
             if (
                 !destino ||
                 destino === "#"
             ) {
                 return;
             }
+
 
             const elemento =
                 document.querySelector(destino);
@@ -195,24 +184,34 @@ function inicializarNavegacaoSuave() {
                 return;
             }
 
+
             event.preventDefault();
 
+
             const header =
-                document.querySelector(".site-header");
+                document.querySelector(
+                    ".site-header"
+                );
+
 
             const alturaHeader =
                 header
                     ? header.offsetHeight
                     : 0;
 
+
             const posicao =
                 elemento.getBoundingClientRect().top +
                 window.scrollY -
                 alturaHeader;
 
+
             window.scrollTo({
+
                 top: posicao,
+
                 behavior: "smooth"
+
             });
 
         });
@@ -223,47 +222,63 @@ function inicializarNavegacaoSuave() {
 
 
 /* =========================================================
-   5. BOTÃO DE CONTATO
+   CONTATO / WHATSAPP
 ========================================================= */
 
 function inicializarContato() {
 
     const contactButton =
-        document.getElementById("contactButton");
+        document.getElementById(
+            "contactButton"
+        );
 
     if (!contactButton) {
         return;
     }
 
 
-    contactButton.addEventListener("click", (event) => {
+    contactButton.addEventListener(
+        "click",
+        (event) => {
 
-        event.preventDefault();
+            event.preventDefault();
 
-        const telefone =
-            "55549926746196";
 
-        const mensagem =
-            encodeURIComponent(
-                "Olá! Vim pelo site do Studio Voar e gostaria de saber mais sobre os serviços."
+            /*
+             * Número do WhatsApp.
+             * Formato internacional:
+             * Brasil = 55
+             */
+            const telefone =
+                "55549926746196";
+
+
+            const mensagem =
+                "Olá! Vim pelo site do Studio Voar e gostaria de saber mais sobre os serviços.";
+
+
+            const mensagemCodificada =
+                encodeURIComponent(mensagem);
+
+
+            const whatsappURL =
+                `https://wa.me/${telefone}?text=${mensagemCodificada}`;
+
+
+            window.open(
+                whatsappURL,
+                "_blank",
+                "noopener,noreferrer"
             );
 
-        const whatsappURL =
-            `https://wa.me/${telefone}?text=${mensagem}`;
-
-        window.open(
-            whatsappURL,
-            "_blank",
-            "noopener,noreferrer"
-        );
-
-    });
+        }
+    );
 
 }
 
 
 /* =========================================================
-   6. FECHAR MENU AO REDIMENSIONAR
+   FECHAR MENU AO REDIMENSIONAR
 ========================================================= */
 
 window.addEventListener("resize", () => {
@@ -280,11 +295,15 @@ window.addEventListener("resize", () => {
                 "menuToggle"
             );
 
+
         if (navigation) {
+
             navigation.classList.remove(
                 "active"
             );
+
         }
+
 
         if (menuToggle) {
 
@@ -306,6 +325,33 @@ window.addEventListener("resize", () => {
 
 
 /* =========================================================
-   FIM
+   PROTEÇÃO CONTRA ERROS DE IMAGEM
+========================================================= */
+
+document.addEventListener(
+    "error",
+    (event) => {
+
+        const elemento =
+            event.target;
+
+        if (
+            elemento &&
+            elemento.tagName === "IMG"
+        ) {
+
+            elemento.classList.add(
+                "image-error"
+            );
+
+        }
+
+    },
+    true
+);
+
+
+/* =========================================================
+   FIM — STUDIO VOAR V2
 ========================================================= */
 ```
