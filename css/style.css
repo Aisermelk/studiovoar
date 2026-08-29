@@ -1,3 +1,4 @@
+```css
 /* =========================================================
    STUDIO VOAR
    CSS PRINCIPAL
@@ -243,7 +244,7 @@ h3 {
 
 
 /* =========================================================
-   LOGO
+   5.1 LOGO
 ========================================================= */
 
 .logo-link {
@@ -275,7 +276,7 @@ h3 {
 
 
 /* =========================================================
-   NAVEGAÇÃO
+   5.2 NAVEGAÇÃO
 ========================================================= */
 
 .main-navigation {
@@ -380,7 +381,7 @@ h3 {
 
 
 /* =========================================================
-   CTA HEADER
+   5.3 CTA HEADER
 ========================================================= */
 
 .header-cta {
@@ -392,7 +393,7 @@ h3 {
 
 
 /* =========================================================
-   MENU MOBILE
+   5.4 MENU MOBILE
 ========================================================= */
 
 .menu-toggle {
@@ -709,7 +710,7 @@ h3 {
 
 
 /* =========================================================
-   HERO IMAGE
+   6.1 HERO IMAGE
 ========================================================= */
 
 .hero-media {
@@ -2032,6 +2033,7 @@ h3 {
 
 /* =========================================================
    18. WHATSAPP
+   Controlado pelo V8 Admin Universal
 ========================================================= */
 
 .whatsapp-link {
@@ -2042,6 +2044,12 @@ h3 {
 }
 
 
+/*
+ * Qualquer elemento controlado pelo V8 Admin
+ * que estiver vazio fica oculto.
+ */
+
+[data-v8][hidden],
 [data-whatsapp][hidden] {
 
     display:
@@ -2051,11 +2059,187 @@ h3 {
 
 
 /* =========================================================
+   18.1 BOTÃO FLUTUANTE
+========================================================= */
+
+.whatsapp-floating {
+
+    position:
+        fixed;
+
+    right:
+        24px;
+
+    bottom:
+        24px;
+
+    width:
+        62px;
+
+    height:
+        62px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        #25D366;
+
+    color:
+        #FFFFFF;
+
+    border-radius:
+        50%;
+
+    text-decoration:
+        none;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.18);
+
+    z-index:
+        9999;
+
+    transition:
+        transform
+        0.25s ease,
+        box-shadow
+        0.25s ease;
+
+}
+
+
+/* =========================================================
+   18.2 ÍCONE WHATSAPP
+========================================================= */
+
+.whatsapp-floating svg {
+
+    width:
+        34px;
+
+    height:
+        34px;
+
+    display:
+        block;
+
+    fill:
+        currentColor;
+
+}
+
+
+/* =========================================================
+   18.3 HOVER
+========================================================= */
+
+.whatsapp-floating:hover {
+
+    transform:
+        translateY(-4px)
+        scale(1.04);
+
+    box-shadow:
+        0 14px 35px rgba(0, 0, 0, 0.25);
+
+}
+
+
+/* =========================================================
+   18.4 LABEL
+========================================================= */
+
+.whatsapp-floating-label {
+
+    position:
+        absolute;
+
+    right:
+        74px;
+
+    top:
+        50%;
+
+    transform:
+        translateY(-50%)
+        translateX(8px);
+
+    white-space:
+        nowrap;
+
+    padding:
+        9px 13px;
+
+    color:
+        var(--text);
+
+    background:
+        var(--white);
+
+    border-radius:
+        9px;
+
+    font-size:
+        0.8rem;
+
+    font-weight:
+        700;
+
+    box-shadow:
+        var(--shadow-soft);
+
+    opacity:
+        0;
+
+    visibility:
+        hidden;
+
+    transition:
+        opacity
+        0.2s ease,
+        visibility
+        0.2s ease,
+        transform
+        0.2s ease;
+
+}
+
+
+/* =========================================================
+   18.5 MOSTRAR LABEL
+========================================================= */
+
+.whatsapp-floating:hover
+.whatsapp-floating-label,
+
+.whatsapp-floating:focus-visible
+.whatsapp-floating-label {
+
+    opacity:
+        1;
+
+    visibility:
+        visible;
+
+    transform:
+        translateY(-50%)
+        translateX(0);
+
+}
+
+
+/* =========================================================
    19. TABLETS
 ========================================================= */
 
 @media (min-width: 700px) {
-
 
     :root {
 
@@ -2210,7 +2394,6 @@ h3 {
 ========================================================= */
 
 @media (min-width: 1024px) {
-
 
     .menu-toggle {
 
@@ -2460,7 +2643,6 @@ h3 {
 
 @media (min-width: 1280px) {
 
-
     :root {
 
         --header-height:
@@ -2520,11 +2702,54 @@ h3 {
 
 
 /* =========================================================
-   22. TELAS MUITO PEQUENAS
+   22. WHATSAPP — MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .whatsapp-floating {
+
+        right:
+            18px;
+
+        bottom:
+            18px;
+
+        width:
+            58px;
+
+        height:
+            58px;
+
+    }
+
+
+    .whatsapp-floating svg {
+
+        width:
+            31px;
+
+        height:
+            31px;
+
+    }
+
+
+    .whatsapp-floating-label {
+
+        display:
+            none;
+
+    }
+
+}
+
+
+/* =========================================================
+   23. TELAS MUITO PEQUENAS
 ========================================================= */
 
 @media (max-width: 359px) {
-
 
     .container {
 
@@ -2584,4 +2809,35 @@ h3 {
 
     }
 
+
+    /* WhatsApp em telas muito pequenas */
+
+    .whatsapp-floating {
+
+        right:
+            14px;
+
+        bottom:
+            14px;
+
+        width:
+            54px;
+
+        height:
+            54px;
+
+    }
+
+
+    .whatsapp-floating svg {
+
+        width:
+            29px;
+
+        height:
+            29px;
+
+    }
+
 }
+```
