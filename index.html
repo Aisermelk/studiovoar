@@ -1,1116 +1,1187 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+```
+<meta charset="UTF-8">
 
-    <meta
-        name="description"
-        content="Studio Voar | Ginástica Artística & Tecido Acrobático. Um espaço para desenvolver habilidades, confiança, disciplina e amor pelo movimento."
-    >
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <meta name="theme-color" content="#6A1BB1">
+<meta
+    name="description"
+    content="Studio Voar | Ginástica Artística & Tecido Acrobático. Um espaço para desenvolver habilidades, confiança, disciplina e amor pelo movimento."
+>
 
-    <!-- SEO -->
-    <meta
-        name="robots"
-        content="index, follow"
-    >
+<meta name="theme-color" content="#6A1BB1">
 
-    <!-- Open Graph -->
-    <meta
-        property="og:title"
-        content="Studio Voar | Ginástica Artística & Tecido Acrobático"
-    >
+<!-- SEO -->
+<meta
+    name="robots"
+    content="index, follow"
+>
 
-    <meta
-        property="og:description"
-        content="Transformando disciplina em conquistas."
-    >
+<!-- Open Graph -->
+<meta
+    property="og:title"
+    content="Studio Voar | Ginástica Artística & Tecido Acrobático"
+>
 
-    <meta
-        property="og:type"
-        content="website"
-    >
+<meta
+    property="og:description"
+    content="Transformando disciplina em conquistas."
+>
 
-    <!--
-        A imagem e URL definitivas serão configuradas
-        posteriormente.
-    -->
+<meta
+    property="og:type"
+    content="website"
+>
 
-    <title>
-        Studio Voar | Ginástica Artística & Tecido Acrobático
-    </title>
+<title>
+    Studio Voar | Ginástica Artística & Tecido Acrobático
+</title>
 
-    <!-- CSS -->
-    <link
-        rel="stylesheet"
-        href="css/style.css"
-    >
+<!-- CSS -->
+<link
+    rel="stylesheet"
+    href="css/style.css"
+>
+```
 
 </head>
 
-
 <body>
 
+```
+<!-- =====================================================
+     HEADER
+====================================================== -->
 
-    <!-- =====================================================
-         HEADER
-    ====================================================== -->
+<header class="site-header">
 
-    <header class="site-header">
+    <div class="container header-container">
 
-        <div class="container header-container">
+        <!-- LOGO -->
 
+        <a
+            href="#inicio"
+            class="logo-link"
+            aria-label="Studio Voar - início"
+        >
 
-            <!-- LOGO -->
-
-            <a
-                href="#inicio"
-                class="logo-link"
-                aria-label="Studio Voar - início"
+            <img
+                src="assets/logo/logo.png"
+                alt="Studio Voar"
+                class="logo"
             >
 
-                <img
-                    src="assets/logo/logo.png"
-                    alt="Studio Voar"
-                    class="logo"
-                >
+        </a>
 
+
+        <!-- NAVEGAÇÃO -->
+
+        <nav
+            class="main-navigation"
+            id="mainNavigation"
+            aria-label="Navegação principal"
+        >
+
+            <a href="#inicio">
+                Início
             </a>
 
-
-            <!-- NAVEGAÇÃO -->
-
-            <nav
-                class="main-navigation"
-                id="mainNavigation"
-                aria-label="Navegação principal"
-            >
-
-                <a href="#inicio">
-                    Início
-                </a>
-
-                <a href="#sobre">
-                    O Studio
-                </a>
-
-                <a href="#modalidades">
-                    Modalidades
-                </a>
-
-                <a href="#galeria">
-                    Galeria
-                </a>
-
-                <a href="#contato">
-                    Contato
-                </a>
-
-            </nav>
-
-
-            <!-- CTA DESKTOP -->
-
-            <a
-                href="#contato"
-                class="header-cta"
-            >
-                Quero conhecer
+            <a href="#sobre">
+                O Studio
             </a>
 
+            <a href="#modalidades">
+                Modalidades
+            </a>
 
-            <!-- MENU MOBILE -->
+            <a href="#galeria">
+                Galeria
+            </a>
 
-            <button
-                type="button"
-                class="menu-toggle"
-                id="menuToggle"
-                aria-label="Abrir menu"
-                aria-expanded="false"
-                aria-controls="mainNavigation"
-            >
+            <a href="#contato">
+                Contato
+            </a>
 
-                <span></span>
-                <span></span>
-                <span></span>
+        </nav>
 
-            </button>
+
+        <!-- CTA DESKTOP -->
+
+        <a
+            href="#contato"
+            class="header-cta"
+        >
+            Quero conhecer
+        </a>
+
+
+        <!-- MENU MOBILE -->
+
+        <button
+            type="button"
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+            aria-controls="mainNavigation"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     CONTEÚDO PRINCIPAL
+====================================================== -->
+
+<main>
+
+
+    <!-- =================================================
+         HERO
+    ================================================== -->
+
+    <section
+        id="inicio"
+        class="hero"
+        aria-labelledby="hero-title"
+    >
+
+        <div class="container hero-container">
+
+
+            <!-- CONTEÚDO -->
+
+            <div class="hero-content">
+
+
+                <p class="hero-label">
+                    STUDIO VOAR
+                </p>
+
+
+                <h1 id="hero-title">
+                    Transformando disciplina
+                    <span>em conquistas.</span>
+                </h1>
+
+
+                <h2 class="hero-subtitle">
+                    Ginástica Artística &amp;
+                    Tecido Acrobático
+                </h2>
+
+
+                <p class="hero-description">
+
+                    Um espaço para desenvolver
+                    habilidades, confiança e amor
+                    pelo movimento.
+
+                </p>
+
+
+                <div class="hero-actions">
+
+
+                    <a
+                        href="#sobre"
+                        class="button button-primary"
+                    >
+                        Quero conhecer o Studio
+                    </a>
+
+
+                    <!-- WhatsApp controlado pelo V8 Admin -->
+
+                    <a
+                        href="#"
+                        class="button button-secondary whatsapp-link"
+                        data-v8="contact.whatsapp"
+                        hidden
+                    >
+                        Falar pelo WhatsApp
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- IMAGEM HERO -->
+
+            <div class="hero-media">
+
+                <div class="hero-image-wrapper">
+
+                    <img
+                        src="assets/images/hero.png"
+                        alt="Aluna praticando uma modalidade do Studio Voar"
+                        class="hero-image"
+                        width="800"
+                        height="900"
+                        fetchpriority="high"
+                    >
+
+                </div>
+
+            </div>
 
         </div>
 
-    </header>
+    </section>
 
 
 
-    <!-- =====================================================
-         CONTEÚDO PRINCIPAL
-    ====================================================== -->
+    <!-- =================================================
+         SOBRE
+    ================================================== -->
 
-    <main>
+    <section
+        id="sobre"
+        class="section about-section"
+        aria-labelledby="about-title"
+    >
 
-
-        <!-- =================================================
-             HERO
-        ================================================== -->
-
-        <section
-            id="inicio"
-            class="hero"
-            aria-labelledby="hero-title"
-        >
-
-            <div class="container hero-container">
+        <div class="container about-container">
 
 
-                <!-- CONTEÚDO -->
+            <div class="section-intro">
 
-                <div class="hero-content">
-
-
-                    <p class="hero-label">
-                        STUDIO VOAR
-                    </p>
+                <p class="section-label">
+                    O STUDIO
+                </p>
 
 
-                    <h1 id="hero-title">
-                        Transformando disciplina
-                        <span>em conquistas.</span>
-                    </h1>
+                <h2 id="about-title">
+                    Sobre o Studio Voar
+                </h2>
+
+            </div>
 
 
-                    <h2 class="hero-subtitle">
-                        Ginástica Artística &amp;
-                        Tecido Acrobático
-                    </h2>
+            <div class="about-content">
+
+                <p class="about-highlight">
+
+                    O Studio Voar nasceu com o propósito
+                    de proporcionar experiências únicas
+                    através da ginástica artística e do
+                    tecido acrobático, unindo técnica,
+                    disciplina e diversão em cada aula.
+
+                </p>
 
 
-                    <p class="hero-description">
+                <p>
 
-                        Um espaço para desenvolver
-                        habilidades, confiança e amor
-                        pelo movimento.
+                    Aqui, cada aluna é incentivada a
+                    superar seus limites, respeitando
+                    seu tempo e sua evolução, em um
+                    ambiente acolhedor e seguro.
 
-                    </p>
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
 
 
-                    <div class="hero-actions">
+
+    <!-- =================================================
+         MODALIDADES
+    ================================================== -->
+
+    <section
+        id="modalidades"
+        class="section modalities-section"
+        aria-labelledby="modalities-title"
+    >
+
+        <div class="container">
+
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    MODALIDADES
+                </p>
+
+
+                <h2 id="modalities-title">
+                    Movimento que transforma
+                </h2>
+
+
+                <p>
+                    Descubra novas possibilidades através
+                    do movimento.
+                </p>
+
+            </div>
+
+
+            <div class="modalities-list">
+
+
+                <!-- GINÁSTICA -->
+
+                <article class="modality">
+
+                    <div class="modality-image">
+
+                        <img
+                            src="assets/images/ginastica-01.png"
+                            alt="Ginástica artística no Studio Voar"
+                            width="800"
+                            height="600"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <div class="modality-content">
+
+                        <span class="modality-number">
+                            01
+                        </span>
+
+
+                        <h3>
+                            Ginástica Artística
+                        </h3>
+
+
+                        <p>
+
+                            Uma modalidade que desenvolve
+                            força, flexibilidade, coordenação,
+                            equilíbrio e confiança através
+                            do movimento.
+
+                        </p>
 
 
                         <a
-                            href="#sobre"
-                            class="button button-primary"
+                            href="#contato"
+                            class="text-link"
                         >
-                            Quero conhecer o Studio
+                            Quero saber mais
                         </a>
 
+                    </div>
 
-                        <!--
-                            O link do WhatsApp será configurado
-                            pelo JavaScript posteriormente.
-                        -->
+                </article>
+
+
+
+                <!-- TECIDO -->
+
+                <article class="modality modality-reverse">
+
+                    <div class="modality-image">
+
+                        <img
+                            src="assets/images/tecido-01.jpg"
+                            alt="Tecido acrobático no Studio Voar"
+                            width="800"
+                            height="600"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <div class="modality-content">
+
+                        <span class="modality-number">
+                            02
+                        </span>
+
+
+                        <h3>
+                            Tecido Acrobático
+                        </h3>
+
+
+                        <p>
+
+                            Uma experiência que combina
+                            força, expressão corporal,
+                            técnica e criatividade em
+                            movimentos realizados no tecido.
+
+                        </p>
+
+
+                        <a
+                            href="#contato"
+                            class="text-link"
+                        >
+                            Quero saber mais
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         DIFERENCIAIS
+    ================================================== -->
+
+    <section
+        class="section differentials-section"
+        aria-labelledby="differentials-title"
+    >
+
+        <div class="container">
+
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    NOSSO JEITO
+                </p>
+
+
+                <h2 id="differentials-title">
+                    Mais do que movimento
+                </h2>
+
+            </div>
+
+
+            <div class="differentials-list">
+
+
+                <article class="differential">
+
+                    <span class="differential-number">
+                        01
+                    </span>
+
+                    <h3>
+                        Disciplina
+                    </h3>
+
+                    <p>
+                        Desenvolvimento através da
+                        dedicação e constância.
+                    </p>
+
+                </article>
+
+
+                <article class="differential">
+
+                    <span class="differential-number">
+                        02
+                    </span>
+
+                    <h3>
+                        Confiança
+                    </h3>
+
+                    <p>
+                        Aprender, tentar e evoluir
+                        com segurança.
+                    </p>
+
+                </article>
+
+
+                <article class="differential">
+
+                    <span class="differential-number">
+                        03
+                    </span>
+
+                    <h3>
+                        Superação
+                    </h3>
+
+                    <p>
+                        Cada conquista começa com
+                        um novo desafio.
+                    </p>
+
+                </article>
+
+
+                <article class="differential">
+
+                    <span class="differential-number">
+                        04
+                    </span>
+
+                    <h3>
+                        Diversão
+                    </h3>
+
+                    <p>
+                        Aprender através do movimento
+                        também pode ser divertido.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         GALERIA
+    ================================================== -->
+
+    <section
+        id="galeria"
+        class="section gallery-section"
+        aria-labelledby="gallery-title"
+    >
+
+        <div class="container">
+
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    GALERIA
+                </p>
+
+
+                <h2 id="gallery-title">
+                    Viva o movimento
+                </h2>
+
+
+                <p>
+                    Um pouco da experiência do Studio Voar.
+                </p>
+
+            </div>
+
+
+            <div class="gallery-grid">
+
+
+                <figure class="gallery-item gallery-large">
+
+                    <img
+                        src="assets/images/studio-01.jpg"
+                        alt="Ambiente do Studio Voar"
+                        width="800"
+                        height="600"
+                        loading="lazy"
+                    >
+
+                </figure>
+
+
+                <figure class="gallery-item">
+
+                    <img
+                        src="assets/images/studio-02.jpg"
+                        alt="Atividade no Studio Voar"
+                        width="600"
+                        height="600"
+                        loading="lazy"
+                    >
+
+                </figure>
+
+
+                <figure class="gallery-item">
+
+                    <img
+                        src="assets/images/galeria-01.jpg"
+                        alt="Momento de treinamento no Studio Voar"
+                        width="600"
+                        height="600"
+                        loading="lazy"
+                    >
+
+                </figure>
+
+
+                <figure class="gallery-item gallery-wide">
+
+                    <img
+                        src="assets/images/galeria-02.jpg"
+                        alt="Movimento acrobático no Studio Voar"
+                        width="1000"
+                        height="600"
+                        loading="lazy"
+                    >
+
+                </figure>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         AULA EXPERIMENTAL
+    ================================================== -->
+
+    <section
+        class="experimental-section"
+        aria-labelledby="experimental-title"
+    >
+
+        <div class="container experimental-container">
+
+
+            <div class="experimental-content">
+
+
+                <p class="section-label">
+                    PRIMEIRO PASSO
+                </p>
+
+
+                <h2 id="experimental-title">
+                    Pronta para dar
+                    o primeiro passo?
+                </h2>
+
+
+                <p>
+
+                    Venha conhecer o Studio Voar e
+                    descobrir tudo o que você pode
+                    conquistar através do movimento.
+
+                </p>
+
+
+                <a
+                    href="#"
+                    class="button button-light whatsapp-link"
+                    data-v8="contact.whatsapp"
+                    hidden
+                >
+                    Agendar aula experimental
+                </a>
+
+            </div>
+
+
+            <!-- ELEMENTO GRÁFICO -->
+
+            <div
+                class="butterfly-decoration"
+                aria-hidden="true"
+            >
+                ✦
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         CONTATO
+    ================================================== -->
+
+    <section
+        id="contato"
+        class="section contact-section"
+        aria-labelledby="contact-title"
+    >
+
+        <div class="container contact-container">
+
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    CONTATO
+                </p>
+
+
+                <h2 id="contact-title">
+                    Vamos conversar?
+                </h2>
+
+
+                <p>
+                    Estamos prontas para conhecer você.
+                </p>
+
+            </div>
+
+
+            <div class="contact-layout">
+
+
+                <!-- INFORMAÇÕES -->
+
+                <div class="contact-info">
+
+
+                    <!-- WHATSAPP -->
+
+                    <div
+                        class="contact-item"
+                        data-contact="whatsapp"
+                    >
+
+                        <span class="contact-label">
+                            WhatsApp
+                        </span>
 
                         <a
                             href="#"
-                            class="button button-secondary whatsapp-link"
-                            data-whatsapp
-                            hidden
+                            class="whatsapp-link"
+                            data-v8="contact.whatsapp"
                         >
                             Falar pelo WhatsApp
                         </a>
 
                     </div>
 
+
+                    <!-- INSTAGRAM -->
+
+                    <div
+                        class="contact-item"
+                        data-contact="instagram"
+                    >
+
+                        <span class="contact-label">
+                            Instagram
+                        </span>
+
+                        <a
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            data-v8="social.instagram"
+                        >
+                            Instagram
+                        </a>
+
+                    </div>
+
+
+                    <!-- E-MAIL -->
+
+                    <div
+                        class="contact-item"
+                        data-contact="email"
+                    >
+
+                        <span class="contact-label">
+                            E-mail
+                        </span>
+
+                        <a
+                            href="#"
+                            data-v8="contact.email"
+                        >
+                            E-mail
+                        </a>
+
+                    </div>
+
+
+                    <!-- TELEFONE -->
+
+                    <div
+                        class="contact-item"
+                        data-contact="phone"
+                    >
+
+                        <span class="contact-label">
+                            Telefone
+                        </span>
+
+                        <a
+                            href="#"
+                            data-v8="contact.phone"
+                        >
+                            Telefone
+                        </a>
+
+                    </div>
+
+
+                    <!-- ENDEREÇO -->
+
+                    <div
+                        class="contact-item"
+                        data-contact="address"
+                    >
+
+                        <span class="contact-label">
+                            Localização
+                        </span>
+
+                        <p data-v8="contact.address"></p>
+
+                    </div>
+
+
+                    <!-- HORÁRIOS -->
+
+                    <div
+                        class="contact-item"
+                        data-contact="schedule"
+                    >
+
+                        <span class="contact-label">
+                            Horários
+                        </span>
+
+                        <p data-v8="contact.schedule"></p>
+
+                    </div>
+
+
                 </div>
 
 
-                <!-- IMAGEM HERO -->
 
-                <div class="hero-media">
+                <!-- FORMULÁRIO -->
 
-                    <div class="hero-image-wrapper">
+                <form
+                    class="contact-form"
+                    id="contactForm"
+                    data-v8-form
+                    novalidate
+                >
 
-                        <img
-                            src="assets/images/hero.png"
-                            alt="Aluna praticando uma modalidade do Studio Voar"
-                            class="hero-image"
-                            width="800"
-                            height="900"
-                            fetchpriority="high"
+
+                    <div class="form-field">
+
+                        <label for="name">
+                            Nome
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            autocomplete="name"
+                            required
                         >
 
                     </div>
 
-                </div>
 
-            </div>
+                    <div class="form-field">
 
-        </section>
+                        <label for="whatsapp">
+                            WhatsApp
+                        </label>
 
+                        <input
+                            type="tel"
+                            id="whatsapp"
+                            name="whatsapp"
+                            autocomplete="tel"
+                            inputmode="tel"
+                            required
+                        >
 
-
-        <!-- =================================================
-             SOBRE
-        ================================================== -->
-
-        <section
-            id="sobre"
-            class="section about-section"
-            aria-labelledby="about-title"
-        >
-
-            <div class="container about-container">
+                    </div>
 
 
-                <div class="section-intro">
+                    <div class="form-field">
 
-                    <p class="section-label">
-                        O STUDIO
-                    </p>
+                        <label for="email">
+                            E-mail
+                        </label>
 
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            autocomplete="email"
+                        >
 
-                    <h2 id="about-title">
-                        Sobre o Studio Voar
-                    </h2>
-
-                </div>
-
-
-                <div class="about-content">
-
-                    <p class="about-highlight">
-
-                        O Studio Voar nasceu com o propósito
-                        de proporcionar experiências únicas
-                        através da ginástica artística e do
-                        tecido acrobático, unindo técnica,
-                        disciplina e diversão em cada aula.
-
-                    </p>
+                    </div>
 
 
-                    <p>
+                    <div class="form-field">
 
-                        Aqui, cada aluna é incentivada a
-                        superar seus limites, respeitando
-                        seu tempo e sua evolução, em um
-                        ambiente acolhedor e seguro.
+                        <label for="modality">
+                            Modalidade
+                        </label>
 
-                    </p>
+                        <select
+                            id="modality"
+                            name="modality"
+                        >
 
-                </div>
+                            <option value="">
+                                Selecione
+                            </option>
 
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             MODALIDADES
-        ================================================== -->
-
-        <section
-            id="modalidades"
-            class="section modalities-section"
-            aria-labelledby="modalities-title"
-        >
-
-            <div class="container">
-
-
-                <div class="section-heading">
-
-                    <p class="section-label">
-                        MODALIDADES
-                    </p>
-
-
-                    <h2 id="modalities-title">
-                        Movimento que transforma
-                    </h2>
-
-
-                    <p>
-                        Descubra novas possibilidades através
-                        do movimento.
-                    </p>
-
-                </div>
-
-
-                <div class="modalities-list">
-
-
-                    <!-- GINÁSTICA -->
-
-                    <article class="modality">
-
-                        <div class="modality-image">
-
-                            <img
-                                src="assets/images/ginastica-01.png"
-                                alt="Ginástica artística no Studio Voar"
-                                width="800"
-                                height="600"
-                                loading="lazy"
-                            >
-
-                        </div>
-
-
-                        <div class="modality-content">
-
-                            <span class="modality-number">
-                                01
-                            </span>
-
-
-                            <h3>
+                            <option value="Ginástica Artística">
                                 Ginástica Artística
-                            </h3>
+                            </option>
 
-
-                            <p>
-
-                                Uma modalidade que desenvolve
-                                força, flexibilidade, coordenação,
-                                equilíbrio e confiança através
-                                do movimento.
-
-                            </p>
-
-
-                            <a
-                                href="#contato"
-                                class="text-link"
-                            >
-                                Quero saber mais
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <!-- TECIDO -->
-
-                    <article class="modality modality-reverse">
-
-                        <div class="modality-image">
-
-                            <img
-                                src="assets/images/tecido-01.jpg"
-                                alt="Tecido acrobático no Studio Voar"
-                                width="800"
-                                height="600"
-                                loading="lazy"
-                            >
-
-                        </div>
-
-
-                        <div class="modality-content">
-
-                            <span class="modality-number">
-                                02
-                            </span>
-
-
-                            <h3>
+                            <option value="Tecido Acrobático">
                                 Tecido Acrobático
-                            </h3>
+                            </option>
 
-
-                            <p>
-
-                                Uma experiência que combina
-                                força, expressão corporal,
-                                técnica e criatividade em
-                                movimentos realizados no tecido.
-
-                            </p>
-
-
-                            <a
-                                href="#contato"
-                                class="text-link"
-                            >
+                            <option value="Quero saber mais">
                                 Quero saber mais
-                            </a>
+                            </option>
 
-                        </div>
-
-                    </article>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             DIFERENCIAIS
-        ================================================== -->
-
-        <section
-            class="section differentials-section"
-            aria-labelledby="differentials-title"
-        >
-
-            <div class="container">
-
-
-                <div class="section-heading">
-
-                    <p class="section-label">
-                        NOSSO JEITO
-                    </p>
-
-
-                    <h2 id="differentials-title">
-                        Mais do que movimento
-                    </h2>
-
-                </div>
-
-
-                <div class="differentials-list">
-
-
-                    <article class="differential">
-
-                        <span class="differential-number">
-                            01
-                        </span>
-
-                        <h3>
-                            Disciplina
-                        </h3>
-
-                        <p>
-                            Desenvolvimento através da
-                            dedicação e constância.
-                        </p>
-
-                    </article>
-
-
-                    <article class="differential">
-
-                        <span class="differential-number">
-                            02
-                        </span>
-
-                        <h3>
-                            Confiança
-                        </h3>
-
-                        <p>
-                            Aprender, tentar e evoluir
-                            com segurança.
-                        </p>
-
-                    </article>
-
-
-                    <article class="differential">
-
-                        <span class="differential-number">
-                            03
-                        </span>
-
-                        <h3>
-                            Superação
-                        </h3>
-
-                        <p>
-                            Cada conquista começa com
-                            um novo desafio.
-                        </p>
-
-                    </article>
-
-
-                    <article class="differential">
-
-                        <span class="differential-number">
-                            04
-                        </span>
-
-                        <h3>
-                            Diversão
-                        </h3>
-
-                        <p>
-                            Aprender através do movimento
-                            também pode ser divertido.
-                        </p>
-
-                    </article>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             GALERIA
-        ================================================== -->
-
-        <section
-            id="galeria"
-            class="section gallery-section"
-            aria-labelledby="gallery-title"
-        >
-
-            <div class="container">
-
-
-                <div class="section-heading">
-
-                    <p class="section-label">
-                        GALERIA
-                    </p>
-
-
-                    <h2 id="gallery-title">
-                        Viva o movimento
-                    </h2>
-
-
-                    <p>
-                        Um pouco da experiência do Studio Voar.
-                    </p>
-
-                </div>
-
-
-                <div class="gallery-grid">
-
-
-                    <figure class="gallery-item gallery-large">
-
-                        <img
-                            src="assets/images/studio-01.jpg"
-                            alt="Ambiente do Studio Voar"
-                            width="800"
-                            height="600"
-                            loading="lazy"
-                        >
-
-                    </figure>
-
-
-                    <figure class="gallery-item">
-
-                        <img
-                            src="assets/images/studio-02.jpg"
-                            alt="Atividade no Studio Voar"
-                            width="600"
-                            height="600"
-                            loading="lazy"
-                        >
-
-                    </figure>
-
-
-                    <figure class="gallery-item">
-
-                        <img
-                            src="assets/images/galeria-01.jpg"
-                            alt="Momento de treinamento no Studio Voar"
-                            width="600"
-                            height="600"
-                            loading="lazy"
-                        >
-
-                    </figure>
-
-
-                    <figure class="gallery-item gallery-wide">
-
-                        <img
-                            src="assets/images/galeria-02.jpg"
-                            alt="Movimento acrobático no Studio Voar"
-                            width="1000"
-                            height="600"
-                            loading="lazy"
-                        >
-
-                    </figure>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             AULA EXPERIMENTAL
-        ================================================== -->
-
-        <section
-            class="experimental-section"
-            aria-labelledby="experimental-title"
-        >
-
-            <div class="container experimental-container">
-
-
-                <div class="experimental-content">
-
-
-                    <p class="section-label">
-                        PRIMEIRO PASSO
-                    </p>
-
-
-                    <h2 id="experimental-title">
-                        Pronta para dar
-                        o primeiro passo?
-                    </h2>
-
-
-                    <p>
-
-                        Venha conhecer o Studio Voar e
-                        descobrir tudo o que você pode
-                        conquistar através do movimento.
-
-                    </p>
-
-
-                    <a
-                        href="#"
-                        class="button button-light whatsapp-link"
-                        data-whatsapp
-                        hidden
-                    >
-                        Agendar aula experimental
-                    </a>
-
-                </div>
-
-
-                <!-- ELEMENTO GRÁFICO -->
-
-                <div
-                    class="butterfly-decoration"
-                    aria-hidden="true"
-                >
-                    ✦
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             CONTATO
-        ================================================== -->
-
-        <section
-            id="contato"
-            class="section contact-section"
-            aria-labelledby="contact-title"
-        >
-
-            <div class="container contact-container">
-
-
-                <div class="section-heading">
-
-                    <p class="section-label">
-                        CONTATO
-                    </p>
-
-
-                    <h2 id="contact-title">
-                        Vamos conversar?
-                    </h2>
-
-
-                    <p>
-                        Estamos prontas para conhecer você.
-                    </p>
-
-                </div>
-
-
-                <div class="contact-layout">
-
-
-                    <!-- INFORMAÇÕES -->
-
-                    <div class="contact-info">
-
-
-                        <div
-                            class="contact-item"
-                            data-contact="whatsapp"
-                            hidden
-                        >
-
-                            <span class="contact-label">
-                                WhatsApp
-                            </span>
-
-                            <a
-                                href="#"
-                                class="whatsapp-link"
-                                data-whatsapp
-                            >
-                                Falar pelo WhatsApp
-                            </a>
-
-                        </div>
-
-
-                        <div
-                            class="contact-item"
-                            data-contact="instagram"
-                        >
-
-                            <span class="contact-label">
-                                Instagram
-                            </span>
-
-                            <a
-                                href="https://www.instagram.com/studiovoar0127/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                @studiovoar0127
-                            </a>
-
-                        </div>
-
-
-                        <div
-                            class="contact-item"
-                            data-contact="address"
-                            hidden
-                        >
-
-                            <span class="contact-label">
-                                Localização
-                            </span>
-
-                            <p data-config="address"></p>
-
-                        </div>
-
-
-                        <div
-                            class="contact-item"
-                            data-contact="schedule"
-                            hidden
-                        >
-
-                            <span class="contact-label">
-                                Horários
-                            </span>
-
-                            <p data-config="schedule"></p>
-
-                        </div>
-
+                        </select>
 
                     </div>
 
 
+                    <div class="form-field">
 
-                    <!-- FORMULÁRIO -->
+                        <label for="message">
+                            Mensagem
+                        </label>
 
-                    <form
-                        class="contact-form"
-                        id="contactForm"
-                        novalidate
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="5"
+                        ></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="button button-primary form-submit"
+                        id="formSubmit"
                     >
+                        Enviar mensagem
+                    </button>
 
 
-                        <div class="form-field">
-
-                            <label for="name">
-                                Nome
-                            </label>
-
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                autocomplete="name"
-                                required
-                            >
-
-                        </div>
+                    <p
+                        class="form-status"
+                        id="formStatus"
+                        role="status"
+                        aria-live="polite"
+                    ></p>
 
 
-                        <div class="form-field">
-
-                            <label for="whatsapp">
-                                WhatsApp
-                            </label>
-
-                            <input
-                                type="tel"
-                                id="whatsapp"
-                                name="whatsapp"
-                                autocomplete="tel"
-                                inputmode="tel"
-                                required
-                            >
-
-                        </div>
-
-
-                        <div class="form-field">
-
-                            <label for="modality">
-                                Modalidade
-                            </label>
-
-                            <select
-                                id="modality"
-                                name="modality"
-                            >
-
-                                <option value="">
-                                    Selecione
-                                </option>
-
-                                <option value="Ginástica Artística">
-                                    Ginástica Artística
-                                </option>
-
-                                <option value="Tecido Acrobático">
-                                    Tecido Acrobático
-                                </option>
-
-                                <option value="Quero saber mais">
-                                    Quero saber mais
-                                </option>
-
-                            </select>
-
-                        </div>
-
-
-                        <div class="form-field">
-
-                            <label for="message">
-                                Mensagem
-                            </label>
-
-                            <textarea
-                                id="message"
-                                name="message"
-                                rows="5"
-                            ></textarea>
-
-                        </div>
-
-
-                        <button
-                            type="submit"
-                            class="button button-primary form-submit"
-                            id="formSubmit"
-                        >
-                            Enviar mensagem
-                        </button>
-
-
-                        <p
-                            class="form-status"
-                            id="formStatus"
-                            role="status"
-                            aria-live="polite"
-                        ></p>
-
-
-                    </form>
-
-                </div>
+                </form>
 
             </div>
 
-        </section>
+        </div>
+
+    </section>
 
 
 
-        <!-- =================================================
-             INSTAGRAM
-        ================================================== -->
+    <!-- =================================================
+         INSTAGRAM
+    ================================================== -->
 
-        <section
-            class="section instagram-section"
-            aria-labelledby="instagram-title"
-        >
+    <section
+        class="section instagram-section"
+        aria-labelledby="instagram-title"
+    >
 
-            <div class="container instagram-container">
-
-
-                <div class="instagram-content">
-
-                    <p class="section-label">
-                        ACOMPANHE
-                    </p>
+        <div class="container instagram-container">
 
 
-                    <h2 id="instagram-title">
-                        Studio Voar no Instagram
-                    </h2>
+            <div class="instagram-content">
+
+                <p class="section-label">
+                    ACOMPANHE
+                </p>
 
 
-                    <p>
-                        Acompanhe novidades e momentos
-                        do Studio Voar.
-                    </p>
-
-
-                    <a
-                        href="https://www.instagram.com/studiovoar0127/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="button button-secondary"
-                    >
-                        @studiovoar0127
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-    </main>
-
-
-
-    <!-- =====================================================
-         FOOTER
-    ====================================================== -->
-
-    <footer class="site-footer">
-
-        <div class="container footer-container">
-
-
-            <div class="footer-brand">
-
-                <a
-                    href="#inicio"
-                    class="footer-logo-link"
-                    aria-label="Studio Voar - início"
-                >
-
-                    <img
-                        src="assets/logo/logo.png"
-                        alt="Studio Voar"
-                        class="footer-logo"
-                        width="160"
-                        height="auto"
-                        loading="lazy"
-                    >
-
-                </a>
+                <h2 id="instagram-title">
+                    Studio Voar no Instagram
+                </h2>
 
 
                 <p>
-                    Transformando disciplina em conquistas.
+                    Acompanhe novidades e momentos
+                    do Studio Voar.
                 </p>
 
-            </div>
-
-
-            <nav
-                class="footer-navigation"
-                aria-label="Navegação do rodapé"
-            >
-
-                <a href="#inicio">
-                    Início
-                </a>
-
-                <a href="#sobre">
-                    O Studio
-                </a>
-
-                <a href="#modalidades">
-                    Modalidades
-                </a>
-
-                <a href="#galeria">
-                    Galeria
-                </a>
-
-                <a href="#contato">
-                    Contato
-                </a>
-
-            </nav>
-
-
-            <div class="footer-social">
 
                 <a
-                    href="https://www.instagram.com/studiovoar0127/"
+                    href="#"
                     target="_blank"
                     rel="noopener noreferrer"
+                    class="button button-secondary"
+                    data-v8="social.instagram"
                 >
                     Instagram
                 </a>
 
             </div>
 
+        </div>
 
-            <div class="footer-bottom">
+    </section>
 
-                <p>
-                    ©
-                    <span id="currentYear"></span>
-                    Studio Voar.
-                    Todos os direitos reservados.
-                </p>
 
-            </div>
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer class="site-footer">
+
+    <div class="container footer-container">
+
+
+        <div class="footer-brand">
+
+            <a
+                href="#inicio"
+                class="footer-logo-link"
+                aria-label="Studio Voar - início"
+            >
+
+                <img
+                    src="assets/logo/logo.png"
+                    alt="Studio Voar"
+                    class="footer-logo"
+                    width="160"
+                    height="auto"
+                    loading="lazy"
+                >
+
+            </a>
+
+
+            <p>
+                Transformando disciplina em conquistas.
+            </p>
 
         </div>
 
-    </footer>
+
+        <nav
+            class="footer-navigation"
+            aria-label="Navegação do rodapé"
+        >
+
+            <a href="#inicio">
+                Início
+            </a>
+
+            <a href="#sobre">
+                O Studio
+            </a>
+
+            <a href="#modalidades">
+                Modalidades
+            </a>
+
+            <a href="#galeria">
+                Galeria
+            </a>
+
+            <a href="#contato">
+                Contato
+            </a>
+
+        </nav>
+
+
+        <div class="footer-social">
+
+            <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-v8="social.instagram"
+            >
+                Instagram
+            </a>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                ©
+                <span id="currentYear"></span>
+                Studio Voar.
+                Todos os direitos reservados.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
 
 
 
-    <!-- =====================================================
-         JAVASCRIPT
-    ====================================================== -->
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
 
-    <script
-        src="js/main.js"
-        defer
-    ></script>
+<script
+    src="js/main.js"
+    defer
+></script>
 
+<!-- V8 ADMIN UNIVERSAL
+     Projeto: 62c5b2a7-031e-460b-9bad-915d1489d350
+-->
+
+<script
+    src="js/v8-loader.js"
+    data-project-id="62c5b2a7-031e-460b-9bad-915d1489d350"
+    defer
+></script>
+```
 
 </body>
 
