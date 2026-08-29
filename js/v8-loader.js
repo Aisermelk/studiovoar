@@ -1,33 +1,24 @@
+```javascript
 /**
- * V8 ADMIN — Universal | Loader de integração
+ * =========================================================
+ * V8 ADMIN — UNIVERSAL
+ * Loader de integração
+ * =========================================================
  *
- * Uso:
+ * Integra automaticamente o site ao V8 Admin Universal.
+ *
+ * Exemplo:
  *
  * <script
  *     src="js/v8-loader.js"
- *     data-project-id="SEU_PROJECT_ID"
- *     defer
- * ></script>
+ *     data-project-id="SEU_PROJECT_ID">
+ * </script>
  *
- * Projeto Studio Voar:
+ * Também aceita:
  *
- * 62c5b2a7-031e-460b-9bad-915d1489d350
+ * data-api-url="https://seu-worker.workers.dev"
  *
- * Funções:
- *
- * 1. Busca a configuração pública do projeto no Worker
- * 2. Injeta Meta Pixel
- * 3. Injeta Google Analytics
- * 4. Injeta Google Tag Manager
- * 5. Preenche elementos [data-v8]
- * 6. Controla automaticamente WhatsApp
- * 7. Controla e-mail
- * 8. Controla telefone
- * 9. Controla redes sociais
- * 10. Esconde campos não configurados
- * 11. Mostra automaticamente campos configurados
- * 12. Configura Formspree
- * 13. Salva leads no V8 Admin
+ * =========================================================
  */
 
 (function () {
@@ -37,7 +28,7 @@
 
     /* =====================================================
        CONFIGURAÇÃO
-    ====================================================== */
+    ===================================================== */
 
     const scriptTag = document.currentScript;
 
@@ -50,14 +41,10 @@
         "https://v8adminuniversal.aisermelk.workers.dev";
 
 
-    /* =====================================================
-       VALIDAÇÃO
-    ====================================================== */
-
     if (!PROJECT_ID) {
 
         console.warn(
-            "V8 Loader: defina data-project-id no <script> do v8-loader.js"
+            "V8 Loader: data-project-id não foi definido."
         );
 
         return;
@@ -66,14 +53,10 @@
 
 
     /* =====================================================
-       FUNÇÃO — BUSCAR VALOR POR CAMINHO
-    ====================================================== */
+       UTILITÁRIOS
+    ===================================================== */
 
-    function getByPath(obj, path) {
-
-        if (!obj || !path) {
-            return undefined;
-        }
+    function getByPath(object, path) {
 
         return path
             .split(".")
@@ -82,36 +65,55 @@
                     current != null
                         ? current[key]
                         : undefined,
-                obj
+                object
             );
 
     }
 
 
-    /* =====================================================
-       FUNÇÃO — INJETAR SCRIPT
-    ====================================================== */
+    function normalizeWhatsApp(value) {
+
+        if (!value) {
+            return "";
+        }
+
+        return String(value)
+            .replace(/\D/g, "");
+
+    }
+
+
+    function createWhatsAppUrl(number, message) {
+
+        const digits =
+            normalizeWhatsApp(number);
+
+        if (!digits) {
+            return "";
+        }
+
+        let url =
+            "https://wa.me/" + digits;
+
+        if (message) {
+
+            url +=
+                "?text=" +
+                encodeURIComponent(message);
+
+        }
+
+        return url;
+
+    }
+
 
     function injectScript(src, attrs) {
-
-        if (!src) {
-            return;
-        }
-
-        const existing =
-            document.querySelector(
-                `script[src="${src}"]`
-            );
-
-        if (existing) {
-            return;
-        }
 
         const script =
             document.createElement("script");
 
         script.src = src;
-
         script.async = true;
 
         if (attrs) {
@@ -135,7 +137,7 @@
 
     /* =====================================================
        TRACKING
-    ====================================================== */
+    ===================================================== */
 
     function injectTracking(tracking) {
 
@@ -144,17 +146,15 @@
         }
 
 
-        /* =================================================
+        /* -----------------------------------------------
            META PIXEL
-        ================================================= */
+        ------------------------------------------------ */
 
         if (tracking.pixel) {
 
             if (!window.fbq) {
 
-                /* eslint-disable */
-
-                !(function (
+                (function (
                     f,
                     b,
                     e,
@@ -168,24 +168,30 @@
                         return;
                     }
 
-                    n =
-                        f.fbq =
-                        function () {
+                    n = f.fbq = function () {
 
-                            n.callMethod
-                                ? n.callMethod.apply(
-                                    n,
-                                    arguments
-                                )
-                                : n.queue.push(
-                                    arguments
-                                );
+                        if (n.callMethod) {
 
-                        };
+                            n.callMethod.apply(
+                                n,
+                                arguments
+                            );
+
+                        } else {
+
+                            n.queue.push(
+                                arguments
+                            );
+
+                        }
+
+                    };
+
 
                     if (!f._fbq) {
                         f._fbq = n;
                     }
+
 
                     n.push = n;
 
@@ -195,20 +201,24 @@
 
                     n.queue = [];
 
-                    t =
-                        b.createElement(e);
+
+                    t = b.createElement(e);
 
                     t.async = true;
 
-                    t.src = v;
+                    t.src =
+                        v;
+
 
                     s =
                         b.getElementsByTagName(e)[0];
+
 
                     s.parentNode.insertBefore(
                         t,
                         s
                     );
+
 
                 })(
                     window,
@@ -217,14 +227,14 @@
                     "https://connect.facebook.net/en_US/fbevents.js"
                 );
 
-                /* eslint-enable */
-
             }
+
 
             window.fbq(
                 "init",
                 tracking.pixel
             );
+
 
             window.fbq(
                 "track",
@@ -234,14 +244,15 @@
         }
 
 
-        /* =================================================
+        /* -----------------------------------------------
            GOOGLE ANALYTICS
-        ================================================= */
+        ------------------------------------------------ */
 
         if (tracking.analytics) {
 
             window.dataLayer =
                 window.dataLayer || [];
+
 
             window.gtag =
                 window.gtag ||
@@ -255,9 +266,10 @@
 
 
             injectScript(
-                `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(
+                "https://www.googletagmanager.com/gtag/js?id=" +
+                encodeURIComponent(
                     tracking.analytics
-                )}`
+                )
             );
 
 
@@ -275,9 +287,9 @@
         }
 
 
-        /* =================================================
+        /* -----------------------------------------------
            GOOGLE TAG MANAGER
-        ================================================= */
+        ------------------------------------------------ */
 
         if (tracking.tag) {
 
@@ -292,37 +304,40 @@
                 w[l] =
                     w[l] || [];
 
+
                 w[l].push({
+
                     "gtm.start":
                         new Date().getTime(),
 
                     event:
                         "gtm.js"
+
                 });
 
 
                 const firstScript =
                     d.getElementsByTagName(s)[0];
 
-                const gtmScript =
+
+                const tagScript =
                     d.createElement(s);
 
 
-                gtmScript.async =
+                tagScript.async =
                     true;
 
 
-                gtmScript.src =
+                tagScript.src =
                     "https://www.googletagmanager.com/gtm.js?id=" +
                     encodeURIComponent(i);
 
 
-                firstScript
-                    .parentNode
-                    .insertBefore(
-                        gtmScript,
-                        firstScript
-                    );
+                firstScript.parentNode.insertBefore(
+                    tagScript,
+                    firstScript
+                );
+
 
             })(
                 window,
@@ -338,236 +353,123 @@
 
 
     /* =====================================================
-       CONTROLE DE VISIBILIDADE
-    ====================================================== */
+       WHATSAPP
+    ===================================================== */
 
-    function showElement(el) {
+    function setupWhatsApp(config) {
 
-        /*
-         * Remove o atributo hidden.
-         */
-
-        el.hidden = false;
-
-
-        /*
-         * Remove display:none colocado anteriormente
-         * pelo loader.
-         */
-
-        el.style.removeProperty(
-            "display"
-        );
-
-    }
+        const whatsapp =
+            getByPath(
+                config,
+                "contact.whatsapp"
+            );
 
 
-    function hideElement(el) {
-
-        /*
-         * Usa hidden de forma nativa.
-         */
-
-        el.hidden = true;
-
-
-        /*
-         * Garante compatibilidade com CSS
-         * existente.
-         */
-
-        el.style.display =
-            "none";
-
-    }
+        const message =
+            getByPath(
+                config,
+                "contact.whatsappMessage"
+            ) ||
+            getByPath(
+                config,
+                "whatsappMessage"
+            ) ||
+            "";
 
 
-    /* =====================================================
-       CONFIGURAR LINK WHATSAPP
-    ====================================================== */
-
-    function configureWhatsApp(
-        el,
-        value
-    ) {
-
-        const digits =
-            String(value)
-                .replace(/\D/g, "");
+        const whatsappUrl =
+            createWhatsAppUrl(
+                whatsapp,
+                message
+            );
 
 
-        /*
-         * Sem número válido:
-         * esconde o elemento.
-         */
-
-        if (!digits) {
-
-            hideElement(el);
-
-            return;
-
-        }
+        const elements =
+            document.querySelectorAll(
+                '[data-v8="contact.whatsapp"]'
+            );
 
 
-        /*
-         * URL oficial de abertura do WhatsApp.
-         */
+        elements.forEach(function (element) {
 
-        el.href =
-            `https://wa.me/${digits}`;
+            if (!whatsappUrl) {
 
+                element.hidden = true;
 
-        /*
-         * Abre em nova aba.
-         */
+                element.style.display =
+                    "none";
 
-        el.target =
-            "_blank";
+                return;
+
+            }
 
 
-        el.rel =
-            "noopener noreferrer";
+            /*
+             * Atualiza o href.
+             */
+
+            element.href =
+                whatsappUrl;
 
 
-        /*
-         * Garante que o elemento fique visível.
-         */
+            /*
+             * Garante que o botão
+             * não volte para o topo.
+             */
 
-        showElement(el);
+            element.addEventListener(
+                "click",
+                function (event) {
+
+                    event.preventDefault();
+
+                    event.stopPropagation();
+
+
+                    /*
+                     * Abre WhatsApp em nova aba.
+                     */
+
+                    window.open(
+                        whatsappUrl,
+                        "_blank",
+                        "noopener,noreferrer"
+                    );
+
+                }
+            );
+
+        });
 
     }
 
 
     /* =====================================================
-       CONFIGURAR E-MAIL
-    ====================================================== */
-
-    function configureEmail(
-        el,
-        value
-    ) {
-
-        const email =
-            String(value)
-                .trim();
-
-
-        if (!email) {
-
-            hideElement(el);
-
-            return;
-
-        }
-
-
-        el.href =
-            `mailto:${email}`;
-
-
-        showElement(el);
-
-    }
-
-
-    /* =====================================================
-       CONFIGURAR TELEFONE
-    ====================================================== */
-
-    function configurePhone(
-        el,
-        value
-    ) {
-
-        const digits =
-            String(value)
-                .replace(/\D/g, "");
-
-
-        if (!digits) {
-
-            hideElement(el);
-
-            return;
-
-        }
-
-
-        el.href =
-            `tel:${digits}`;
-
-
-        showElement(el);
-
-    }
-
-
-    /* =====================================================
-       CONFIGURAR REDES SOCIAIS
-    ====================================================== */
-
-    function configureSocial(
-        el,
-        value
-    ) {
-
-        const url =
-            String(value)
-                .trim();
-
-
-        if (!url) {
-
-            hideElement(el);
-
-            return;
-
-        }
-
-
-        el.href =
-            url;
-
-
-        /*
-         * Links externos.
-         */
-
-        if (
-            el.tagName === "A"
-        ) {
-
-            el.target =
-                "_blank";
-
-            el.rel =
-                "noopener noreferrer";
-
-        }
-
-
-        showElement(el);
-
-    }
-
-
-    /* =====================================================
-       PREENCHER CAMPOS DATA-V8
-    ====================================================== */
+       PREENCHIMENTO DOS CAMPOS
+    ===================================================== */
 
     function fillFields(config) {
 
         document
             .querySelectorAll("[data-v8]")
-            .forEach((el) => {
+            .forEach(function (element) {
 
                 const path =
-                    el.dataset.v8;
+                    element.dataset.v8;
 
 
-                if (!path) {
+                /*
+                 * WhatsApp é tratado
+                 * separadamente.
+                 */
+
+                if (
+                    path ===
+                    "contact.whatsapp"
+                ) {
+
                     return;
+
                 }
 
 
@@ -579,7 +481,8 @@
 
 
                 /*
-                 * Campo vazio no painel.
+                 * Campo vazio:
+                 * remove da interface.
                  */
 
                 if (
@@ -588,150 +491,71 @@
                     String(value).trim() === ""
                 ) {
 
-                    hideElement(el);
+                    element.hidden =
+                        true;
+
+                    element.style.display =
+                        "none";
 
                     return;
 
                 }
 
 
-                /* =========================================
-                   WHATSAPP
-                ========================================== */
+                /*
+                 * Links.
+                 */
 
                 if (
-                    path ===
-                    "contact.whatsapp"
-                ) {
-
-                    configureWhatsApp(
-                        el,
-                        value
-                    );
-
-                    return;
-
-                }
-
-
-                /* =========================================
-                   E-MAIL
-                ========================================== */
-
-                if (
-                    path ===
-                    "contact.email"
+                    element.tagName ===
+                    "A"
                 ) {
 
                     if (
-                        el.tagName === "A"
+                        path ===
+                        "contact.email"
                     ) {
 
-                        configureEmail(
-                            el,
-                            value
-                        );
-
-                    } else {
-
-                        el.textContent =
+                        element.href =
+                            "mailto:" +
                             value;
-
-                        showElement(el);
 
                     }
 
-                    return;
-
-                }
-
-
-                /* =========================================
-                   TELEFONE
-                ========================================== */
-
-                if (
-                    path ===
-                    "contact.phone"
-                ) {
-
-                    if (
-                        el.tagName === "A"
+                    else if (
+                        path ===
+                        "contact.phone"
                     ) {
 
-                        configurePhone(
-                            el,
-                            value
-                        );
-
-                    } else {
-
-                        el.textContent =
-                            value;
-
-                        showElement(el);
+                        element.href =
+                            "tel:" +
+                            String(value)
+                                .replace(
+                                    /\D/g,
+                                    ""
+                                );
 
                     }
 
-                    return;
+                    else {
 
-                }
-
-
-                /* =========================================
-                   REDES SOCIAIS
-                ========================================== */
-
-                if (
-                    path.startsWith(
-                        "social."
-                    )
-                ) {
-
-                    if (
-                        el.tagName === "A"
-                    ) {
-
-                        configureSocial(
-                            el,
-                            value
-                        );
-
-                    } else {
-
-                        el.textContent =
+                        element.href =
                             value;
-
-                        showElement(el);
 
                     }
 
-                    return;
-
                 }
 
+                /*
+                 * Outros elementos.
+                 */
 
-                /* =========================================
-                   OUTROS CAMPOS
-                ========================================== */
+                else {
 
-                if (
-                    el.tagName === "INPUT" ||
-                    el.tagName === "TEXTAREA"
-                ) {
-
-                    el.value =
-                        value;
-
-                } else {
-
-                    el.textContent =
+                    element.textContent =
                         value;
 
                 }
-
-
-                showElement(el);
 
             });
 
@@ -739,8 +563,8 @@
 
 
     /* =====================================================
-       FORMULÁRIO — V8 ADMIN + FORMSPREE
-    ====================================================== */
+       FORMULÁRIO
+    ===================================================== */
 
     function wireForm(
         projectId,
@@ -767,101 +591,87 @@
             form.action =
                 formspreeUrl;
 
-            form.method =
-                "POST";
-
         }
 
 
         /*
-         * Evita registrar o mesmo formulário
-         * duas vezes.
+         * Captura o lead para o
+         * V8 Admin Universal.
          */
-
-        if (
-            form.dataset.v8Wired === "true"
-        ) {
-
-            return;
-
-        }
-
-
-        form.dataset.v8Wired =
-            "true";
-
 
         form.addEventListener(
             "submit",
-            async function (event) {
+            function () {
 
-                const data =
-                    Object.fromEntries(
-                        new FormData(form)
-                            .entries()
+                try {
+
+                    const formData =
+                        new FormData(form);
+
+
+                    const data =
+                        Object.fromEntries(
+                            formData.entries()
+                        );
+
+
+                    fetch(
+                        API_URL +
+                        "/api/public/leads/" +
+                        encodeURIComponent(
+                            projectId
+                        ),
+                        {
+
+                            method:
+                                "POST",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "application/json"
+
+                            },
+
+                            body:
+                                JSON.stringify({
+
+                                    name:
+                                        data.name ||
+                                        data.nome ||
+                                        "",
+
+                                    email:
+                                        data.email ||
+                                        "",
+
+                                    phone:
+                                        data.phone ||
+                                        data.telefone ||
+                                        "",
+
+                                    message:
+                                        data.message ||
+                                        data.mensagem ||
+                                        ""
+
+                                })
+
+                        }
+                    ).catch(
+                        function () {}
                     );
 
+                }
 
-                /*
-                 * Salva cópia do lead no V8 Admin.
-                 *
-                 * Isso não bloqueia o Formspree.
-                 */
+                catch (error) {
 
-                fetch(
-                    `${API_URL}/api/public/leads/${encodeURIComponent(
-                        projectId
-                    )}`,
-                    {
-                        method:
-                            "POST",
+                    console.warn(
+                        "V8 Loader: erro ao registrar lead.",
+                        error
+                    );
 
-                        headers: {
-                            "Content-Type":
-                                "application/json"
-                        },
-
-                        body:
-                            JSON.stringify({
-
-                                name:
-                                    data.name ||
-                                    data.nome ||
-                                    "",
-
-                                email:
-                                    data.email ||
-                                    "",
-
-                                whatsapp:
-                                    data.whatsapp ||
-                                    data.phone ||
-                                    data.telefone ||
-                                    "",
-
-                                modality:
-                                    data.modality ||
-                                    data.modalidade ||
-                                    "",
-
-                                message:
-                                    data.message ||
-                                    data.mensagem ||
-                                    ""
-
-                            })
-
-                    }
-                )
-                .catch(() => {});
-
-
-                /*
-                 * Não usamos preventDefault().
-                 *
-                 * O navegador continua enviando
-                 * normalmente para o Formspree.
-                 */
+                }
 
             }
         );
@@ -870,8 +680,8 @@
 
 
     /* =====================================================
-       CARREGAR CONFIGURAÇÃO DO PROJETO
-    ====================================================== */
+       CARREGAR CONFIGURAÇÃO
+    ===================================================== */
 
     async function loadConfig() {
 
@@ -879,20 +689,14 @@
 
             const response =
                 await fetch(
-                    `${API_URL}/api/public/config/${encodeURIComponent(
+                    API_URL +
+                    "/api/public/config/" +
+                    encodeURIComponent(
                         PROJECT_ID
-                    )}`,
+                    ),
                     {
-                        method:
-                            "GET",
-
-                        headers: {
-                            "Accept":
-                                "application/json"
-                        },
-
-                        cache:
-                            "no-store"
+                        method: "GET",
+                        cache: "no-store"
                     }
                 );
 
@@ -900,7 +704,8 @@
             if (!response.ok) {
 
                 throw new Error(
-                    `HTTP ${response.status}`
+                    "HTTP " +
+                    response.status
                 );
 
             }
@@ -934,10 +739,19 @@
 
 
             /*
-             * Campos data-v8
+             * Campos dinâmicos
              */
 
             fillFields(
+                config
+            );
+
+
+            /*
+             * WhatsApp
+             */
+
+            setupWhatsApp(
                 config
             );
 
@@ -953,30 +767,26 @@
 
 
             /*
-             * Evento personalizado para permitir
-             * integrações adicionais no site.
+             * Evento global.
+             * Útil para scripts adicionais.
              */
 
             window.dispatchEvent(
                 new CustomEvent(
-                    "v8:ready",
+                    "v8admin:ready",
                     {
-                        detail: {
-                            projectId:
-                                PROJECT_ID,
-
-                            config:
-                                config
-                        }
+                        detail: config
                     }
                 )
             );
 
 
-        } catch (error) {
+        }
+
+        catch (error) {
 
             console.warn(
-                "V8 Loader: não foi possível carregar a configuração do projeto.",
+                "V8 Loader: não foi possível carregar a configuração.",
                 error
             );
 
@@ -987,7 +797,7 @@
 
     /* =====================================================
        INICIALIZAÇÃO
-    ====================================================== */
+    ===================================================== */
 
     if (
         document.readyState ===
@@ -996,13 +806,12 @@
 
         document.addEventListener(
             "DOMContentLoaded",
-            loadConfig,
-            {
-                once: true
-            }
+            loadConfig
         );
 
-    } else {
+    }
+
+    else {
 
         loadConfig();
 
