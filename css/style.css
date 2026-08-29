@@ -1,8 +1,9 @@
 ```css
 /* =========================================================
    STUDIO VOAR
-   CSS PRINCIPAL
+   CSS PRINCIPAL — VERSÃO V8 ADMIN UNIVERSAL
    Mobile First
+   Layout responsivo + WhatsApp + integrações V8
 ========================================================= */
 
 
@@ -67,11 +68,11 @@ html {
 body {
     margin: 0;
 
-    background:
-        var(--background);
+    min-width: 320px;
 
-    color:
-        var(--text);
+    background: var(--background);
+
+    color: var(--text);
 
     font-family:
         "Inter",
@@ -86,6 +87,7 @@ body {
     overflow-x: hidden;
 
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 
@@ -130,6 +132,17 @@ h1,
 h2,
 h3 {
     line-height: 1.15;
+}
+
+
+ul,
+ol {
+    margin-top: 0;
+}
+
+
+iframe {
+    max-width: 100%;
 }
 
 
@@ -208,11 +221,14 @@ h3 {
     z-index:
         1000;
 
+    width:
+        100%;
+
     height:
         var(--header-height);
 
     background:
-        rgba(255, 255, 255, 0.94);
+        rgba(255, 255, 255, 0.96);
 
     border-bottom:
         1px solid var(--border);
@@ -236,6 +252,9 @@ h3 {
 
     justify-content:
         space-between;
+
+    gap:
+        20px;
 
     height:
         100%;
@@ -269,6 +288,9 @@ h3 {
     height:
         52px;
 
+    max-width:
+        190px;
+
     object-fit:
         contain;
 
@@ -292,6 +314,12 @@ h3 {
 
     width:
         100%;
+
+    max-height:
+        calc(100svh - var(--header-height));
+
+    overflow-y:
+        auto;
 
     padding:
         24px 20px;
@@ -389,6 +417,9 @@ h3 {
     display:
         none;
 
+    flex-shrink:
+        0;
+
 }
 
 
@@ -421,6 +452,9 @@ h3 {
 
     gap:
         5px;
+
+    flex-shrink:
+        0;
 
     background:
         transparent;
@@ -544,6 +578,9 @@ h3 {
     filter:
         blur(4px);
 
+    pointer-events:
+        none;
+
 }
 
 
@@ -573,6 +610,9 @@ h3 {
     background:
         rgba(106, 27, 177, 0.10);
 
+    pointer-events:
+        none;
+
 }
 
 
@@ -590,10 +630,16 @@ h3 {
     gap:
         50px;
 
+    width:
+        100%;
+
 }
 
 
 .hero-content {
+
+    width:
+        100%;
 
     max-width:
         650px;
@@ -718,6 +764,9 @@ h3 {
     min-width:
         0;
 
+    width:
+        100%;
+
 }
 
 
@@ -725,6 +774,9 @@ h3 {
 
     position:
         relative;
+
+    width:
+        100%;
 
     max-width:
         520px;
@@ -747,7 +799,8 @@ h3 {
         -12px;
 
     border:
-        1px solid rgba(
+        1px solid
+        rgba(
             106,
             27,
             177,
@@ -759,6 +812,9 @@ h3 {
 
     transform:
         rotate(4deg);
+
+    pointer-events:
+        none;
 
 }
 
@@ -824,6 +880,9 @@ h3 {
 
     text-align:
         center;
+
+    white-space:
+        nowrap;
 
     transition:
         var(--transition);
@@ -988,6 +1047,9 @@ h3 {
 
 .about-content {
 
+    width:
+        100%;
+
     max-width:
         700px;
 
@@ -1092,7 +1154,8 @@ h3 {
 }
 
 
-.modality:hover .modality-image img {
+.modality:hover
+.modality-image img {
 
     transform:
         scale(1.035);
@@ -1217,8 +1280,7 @@ h3 {
 }
 
 
-.differentials-section
-.section-label {
+.differentials-section .section-label {
 
     color:
         var(--pink-light);
@@ -1226,8 +1288,7 @@ h3 {
 }
 
 
-.differentials-section
-.section-heading h2 {
+.differentials-section .section-heading h2 {
 
     color:
         var(--white);
@@ -1466,6 +1527,9 @@ h3 {
     background:
         rgba(232,62,159,0.25);
 
+    pointer-events:
+        none;
+
 }
 
 
@@ -1494,6 +1558,9 @@ h3 {
 
     background:
         rgba(255,255,255,0.08);
+
+    pointer-events:
+        none;
 
 }
 
@@ -1579,6 +1646,12 @@ h3 {
 
     font-size:
         8rem;
+
+    line-height:
+        1;
+
+    pointer-events:
+        none;
 
     transform:
         rotate(-15deg);
@@ -1685,6 +1758,9 @@ h3 {
 
 .contact-form {
 
+    width:
+        100%;
+
     padding:
         28px;
 
@@ -1737,6 +1813,9 @@ h3 {
 
     width:
         100%;
+
+    min-width:
+        0;
 
     padding:
         13px 14px;
@@ -1944,6 +2023,9 @@ h3 {
     height:
         48px;
 
+    max-width:
+        180px;
+
     object-fit:
         contain;
 
@@ -2032,22 +2114,15 @@ h3 {
 
 
 /* =========================================================
-   18. WHATSAPP
-   Controlado pelo V8 Admin Universal
+   18. V8 ADMIN UNIVERSAL
 ========================================================= */
 
-.whatsapp-link {
-
-    position:
-        relative;
-
-}
-
-
 /*
- * Qualquer elemento controlado pelo V8 Admin
- * que estiver vazio fica oculto.
- */
+   Elementos controlados pelo V8 Admin.
+
+   Se o Loader determinar que o campo está vazio,
+   ele será ocultado.
+*/
 
 [data-v8][hidden],
 [data-whatsapp][hidden] {
@@ -2058,8 +2133,33 @@ h3 {
 }
 
 
+/*
+   Não deixa elementos controlados pelo V8
+   criarem espaços estranhos enquanto carregam.
+*/
+
+[data-v8] {
+
+    transition:
+        opacity 0.2s ease;
+
+}
+
+
 /* =========================================================
-   18.1 BOTÃO FLUTUANTE
+   18.1 LINKS WHATSAPP
+========================================================= */
+
+.whatsapp-link {
+
+    position:
+        relative;
+
+}
+
+
+/* =========================================================
+   18.2 BOTÃO WHATSAPP FLUTUANTE
 ========================================================= */
 
 .whatsapp-floating {
@@ -2088,11 +2188,17 @@ h3 {
     justify-content:
         center;
 
-    background:
-        #25D366;
+    padding:
+        0;
 
     color:
         #FFFFFF;
+
+    background:
+        #25D366;
+
+    border:
+        0;
 
     border-radius:
         50%;
@@ -2101,7 +2207,8 @@ h3 {
         none;
 
     box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.18);
+        0 10px 30px
+        rgba(0, 0, 0, 0.18);
 
     z-index:
         9999;
@@ -2115,8 +2222,24 @@ h3 {
 }
 
 
+/*
+   Garante que o botão não fique invisível
+   por estilos genéricos do site.
+*/
+
+a.whatsapp-floating {
+
+    opacity:
+        1;
+
+    visibility:
+        visible;
+
+}
+
+
 /* =========================================================
-   18.2 ÍCONE WHATSAPP
+   18.3 ÍCONE WHATSAPP
 ========================================================= */
 
 .whatsapp-floating svg {
@@ -2137,7 +2260,7 @@ h3 {
 
 
 /* =========================================================
-   18.3 HOVER
+   18.4 HOVER WHATSAPP
 ========================================================= */
 
 .whatsapp-floating:hover {
@@ -2147,13 +2270,14 @@ h3 {
         scale(1.04);
 
     box-shadow:
-        0 14px 35px rgba(0, 0, 0, 0.25);
+        0 14px 35px
+        rgba(0, 0, 0, 0.25);
 
 }
 
 
 /* =========================================================
-   18.4 LABEL
+   18.5 LABEL WHATSAPP
 ========================================================= */
 
 .whatsapp-floating-label {
@@ -2201,6 +2325,9 @@ h3 {
     visibility:
         hidden;
 
+    pointer-events:
+        none;
+
     transition:
         opacity
         0.2s ease,
@@ -2213,7 +2340,7 @@ h3 {
 
 
 /* =========================================================
-   18.5 MOSTRAR LABEL
+   18.6 MOSTRAR LABEL
 ========================================================= */
 
 .whatsapp-floating:hover
@@ -2231,6 +2358,32 @@ h3 {
     transform:
         translateY(-50%)
         translateX(0);
+
+}
+
+
+/* =========================================================
+   18.7 WHATSAPP — ELEMENTO V8
+========================================================= */
+
+/*
+   O Loader pode usar:
+
+   <a
+       class="whatsapp-floating"
+       data-v8="contact.whatsapp"
+       aria-label="Falar pelo WhatsApp"
+   >
+       ...
+   </a>
+
+   O Loader preencherá automaticamente o href.
+*/
+
+.whatsapp-floating[data-v8] {
+
+    display:
+        flex;
 
 }
 
@@ -2279,7 +2432,8 @@ h3 {
     .hero-container {
 
         grid-template-columns:
-            1fr 0.85fr;
+            minmax(0, 1fr)
+            minmax(280px, 0.85fr);
 
         align-items:
             center;
@@ -2309,7 +2463,8 @@ h3 {
     .about-container {
 
         grid-template-columns:
-            0.7fr 1.3fr;
+            minmax(220px, 0.7fr)
+            minmax(0, 1.3fr);
 
         gap:
             70px;
@@ -2323,7 +2478,8 @@ h3 {
     .modality {
 
         grid-template-columns:
-            1.05fr 0.95fr;
+            minmax(0, 1.05fr)
+            minmax(0, 0.95fr);
 
         gap:
             60px;
@@ -2331,8 +2487,7 @@ h3 {
     }
 
 
-    .modality-reverse
-    .modality-image {
+    .modality-reverse .modality-image {
 
         order:
             2;
@@ -2340,8 +2495,7 @@ h3 {
     }
 
 
-    .modality-reverse
-    .modality-content {
+    .modality-reverse .modality-content {
 
         order:
             1;
@@ -2352,7 +2506,8 @@ h3 {
     .contact-layout {
 
         grid-template-columns:
-            0.8fr 1.2fr;
+            minmax(240px, 0.8fr)
+            minmax(0, 1.2fr);
 
         align-items:
             start;
@@ -2411,6 +2566,12 @@ h3 {
         width:
             auto;
 
+        max-height:
+            none;
+
+        overflow:
+            visible;
+
         padding:
             0;
 
@@ -2421,6 +2582,9 @@ h3 {
             row;
 
         align-items:
+            center;
+
+        justify-content:
             center;
 
         gap:
@@ -2454,6 +2618,9 @@ h3 {
 
         font-size:
             0.86rem;
+
+        white-space:
+            nowrap;
 
     }
 
@@ -2490,6 +2657,9 @@ h3 {
         font-weight:
             700;
 
+        white-space:
+            nowrap;
+
         transition:
             var(--transition);
 
@@ -2518,7 +2688,8 @@ h3 {
     .hero-container {
 
         grid-template-columns:
-            1.05fr 0.95fr;
+            minmax(0, 1.05fr)
+            minmax(380px, 0.95fr);
 
         gap:
             80px;
@@ -2537,12 +2708,15 @@ h3 {
     .differentials-list {
 
         grid-template-columns:
-            repeat(4, 1fr);
+            repeat(4, minmax(0, 1fr));
 
     }
 
 
     .differential {
+
+        min-width:
+            0;
 
         padding:
             35px 28px;
@@ -2578,7 +2752,9 @@ h3 {
     .gallery-grid {
 
         grid-template-columns:
-            1.2fr 0.8fr 0.8fr;
+            minmax(0, 1.2fr)
+            minmax(0, 0.8fr)
+            minmax(0, 0.8fr);
 
         grid-auto-rows:
             240px;
@@ -2634,11 +2810,75 @@ h3 {
 
     }
 
+
+    /*
+       WhatsApp desktop
+    */
+
+    .whatsapp-floating {
+
+        right:
+            28px;
+
+        bottom:
+            28px;
+
+        width:
+            64px;
+
+        height:
+            64px;
+
+    }
+
+
+    .whatsapp-floating svg {
+
+        width:
+            35px;
+
+        height:
+            35px;
+
+    }
+
 }
 
 
 /* =========================================================
-   21. TELAS GRANDES
+   21. DESKTOP GRANDE
+========================================================= */
+
+@media (min-width: 1200px) {
+
+    .header-container {
+
+        gap:
+            30px;
+
+    }
+
+
+    .main-navigation {
+
+        flex:
+            1;
+
+    }
+
+
+    .main-navigation a {
+
+        padding:
+            8px 12px;
+
+    }
+
+}
+
+
+/* =========================================================
+   22. TELAS GRANDES
 ========================================================= */
 
 @media (min-width: 1280px) {
@@ -2662,7 +2902,7 @@ h3 {
     .main-navigation {
 
         gap:
-            10px;
+            8px;
 
     }
 
@@ -2698,11 +2938,62 @@ h3 {
 
     }
 
+
+    .hero-content {
+
+        max-width:
+            650px;
+
+    }
+
+
+    .hero h1 {
+
+        max-width:
+            700px;
+
+    }
+
 }
 
 
 /* =========================================================
-   22. WHATSAPP — MOBILE
+   23. TELAS MUITO GRANDES
+========================================================= */
+
+@media (min-width: 1440px) {
+
+    .container {
+
+        width:
+            min(
+                calc(100% - 80px),
+                var(--container)
+            );
+
+    }
+
+
+    .hero-container {
+
+        gap:
+            120px;
+
+    }
+
+
+    .hero-image-wrapper {
+
+        max-width:
+            570px;
+
+    }
+
+}
+
+
+/* =========================================================
+   24. WHATSAPP — MOBILE
 ========================================================= */
 
 @media (max-width: 768px) {
@@ -2746,7 +3037,61 @@ h3 {
 
 
 /* =========================================================
-   23. TELAS MUITO PEQUENAS
+   25. MOBILE — AJUSTES
+========================================================= */
+
+@media (max-width: 699px) {
+
+    .hero-content,
+    .hero-media,
+    .about-content,
+    .experimental-content {
+
+        width:
+            100%;
+
+        min-width:
+            0;
+
+    }
+
+
+    .hero-actions {
+
+        width:
+            100%;
+
+    }
+
+
+    .hero-actions .button {
+
+        flex:
+            0 1 auto;
+
+    }
+
+
+    .gallery-grid {
+
+        width:
+            100%;
+
+    }
+
+
+    .contact-form {
+
+        max-width:
+            100%;
+
+    }
+
+}
+
+
+/* =========================================================
+   26. TELAS MUITO PEQUENAS
 ========================================================= */
 
 @media (max-width: 359px) {
@@ -2810,8 +3155,6 @@ h3 {
     }
 
 
-    /* WhatsApp em telas muito pequenas */
-
     .whatsapp-floating {
 
         right:
@@ -2840,4 +3183,21 @@ h3 {
     }
 
 }
+
+
+/* =========================================================
+   27. CORREÇÃO FINAL — ELEMENTOS HIDDEN
+========================================================= */
+
+[hidden] {
+
+    display:
+        none !important;
+
+}
+
+
+/* =========================================================
+   FIM DO CSS
+========================================================= */
 ```
