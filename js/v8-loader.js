@@ -4,7 +4,7 @@
  * Coloque este arquivo em qualquer site (ex: js/v8-loader.js) e inclua assim,
  * perto do fim do <body>, trocando SEU_PROJECT_ID pelo ID gerado no painel:
  *
- *   <script src="js/v8-loader.js" data-project-id="SEU_PROJECT_ID"></script>
+ *   <script src="js/v8-loader.js" data-project-id62c5b2a7-031e-460b-9bad-915d1489d350ID"></script>
  *
  * O que ele faz sozinho, sem mais nada:
  *   1. Busca a config pública do projeto no Worker
